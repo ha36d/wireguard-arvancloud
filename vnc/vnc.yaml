@@ -1,0 +1,18 @@
+- hosts: all
+  become: yes
+  gather_facts: false
+  tasks:
+    - name: Add specified repository into sources list
+      apt_repository:
+        repo: ppa:mozillateam/ppa
+        state: present
+    - name: Install Wireguard with client
+      apt:
+        pkg:
+          - dbus-x11
+          - xfce4-goodies
+          - xfce4
+          - net-tools
+          - firefox-esr
+          - tightvncserver
+          - xfonts-base
